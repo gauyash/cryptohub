@@ -46,6 +46,8 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
+  background-color: #f0f2f5;
+
 }
 
 /* A elements that don't have a class get default styles */
@@ -82,4 +84,11 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+section,
+main {
+  width: 90%;
+  margin-inline: auto;
+  padding: 1rem 0;
 }

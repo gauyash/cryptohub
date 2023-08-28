@@ -1,10 +1,11 @@
 import React from "react";
+import './../styles/Hero.scss'
 
 const Hero = () => {
   return (
     <main>
-      <section className="hero">
-        <h1 className="hero_heading">Global Crypto Stats</h1>
+      <section className="hero container">
+        <h1 className="hero_heading font-medium">Global Crypto Stats</h1>
 
         <div className="hero_stats">
           <div className="first_col">

@@ -1,0 +1,24 @@
+
+
+.hero_heading{
+    font-size: 2.8rem;
+    padding-bottom:1rem ;
+}
+
+.hero_stats{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.hero_stats_heading{
+    font-size: 1.4rem;
+    color: black;
+    font-weight: 200;
+}
+
+.hero_stats_amount{
+    padding: 0.5rem 0;
+    font-size: 2rem;
+    font-weight: 400;
+}

@@ -3,7 +3,6 @@ import MainLayout from "./Components/Layout/MainLayout"
 import Home from "./Pages/Home"
 import CryptoCurrencies from "./Pages/CryptoCurrencies"
 import News from "./Pages/News"
-import './styles/global.scss'
 
 function App() {
 
