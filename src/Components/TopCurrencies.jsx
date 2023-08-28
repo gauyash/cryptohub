@@ -7,7 +7,7 @@ import './../styles/TopCurrencies.scss'
 const TopCurrencies = () => {
   return (
     <section>
-      <div className="flex items-center justify-between">
+      <div className="flex justify-between">
         <h2 className="heading font-medium">Top 10 Cryptocurrencies in the World</h2>
         <Link to="/cryptocurrencies"><Icon icon="fluent-mdl2:go" width="15" /></Link>
       </div>
