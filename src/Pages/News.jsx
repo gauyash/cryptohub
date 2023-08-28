@@ -5,7 +5,7 @@ const News = () => {
   return (
     <section>
       <form>
-        <select name="" id="">
+        <select className="mb-4 py-4 p-5" name="" id="">
           <option hidden value="">
             Select a Crypto
           </option>

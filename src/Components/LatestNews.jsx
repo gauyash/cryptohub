@@ -9,7 +9,7 @@ const LatestNews = () => {
     <section>
       <div className="flex justify-between">
         <h2 className="heading font-medium">Latest Crypto News</h2>
-        <Link to="/cryptocurrencies"><Icon icon="fluent-mdl2:go" width="15" /></Link>
+        <Link to="/news"><Icon icon="fluent-mdl2:go" width="15" /></Link>
       </div>
       <CardNews />
     </section>

@@ -5,7 +5,7 @@ const CryptoCurrencies = () => {
   return (
     <section>
       <form>
-        <input type="text" />
+        <input className="search" type="text" />
       </form>
 
       <CardCurrencies />
