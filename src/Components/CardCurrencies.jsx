@@ -28,11 +28,10 @@ const CardCurrencies = () => {
     );
   }
 
-  console.log(data);
 
-  const currenciesElements = data.map((item) => {
+  const currenciesElements = data?.map((item) => {
     return (
-      <div className="card shadow">
+      <div key={item.uuid} className="card shadow">
         <div className="flex items-center justify-between">
           <h3 className="card_heading">{`${item.rank} ${item.name}`}</h3>
           <img src={item.iconUrl} alt="" width="20px" />
