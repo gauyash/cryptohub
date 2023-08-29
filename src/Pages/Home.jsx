@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "../Components/Hero";
 import TopCurrencies from "../Components/TopCurrencies";
 import LatestNews from "../Components/LatestNews";
@@ -6,9 +6,11 @@ import LatestNews from "../Components/LatestNews";
 const Home = () => {
   return (
     <>
-      <Hero />
-      <TopCurrencies />
-      <LatestNews />
+      <>
+        <Hero />
+        <TopCurrencies />
+        <LatestNews />
+      </>
     </>
   );
 };

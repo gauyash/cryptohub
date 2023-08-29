@@ -1,30 +1,46 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
-import './../styles/Sidebar.scss'
+import { NavLink, useLocation } from "react-router-dom";
+import "./../styles/Sidebar.scss";
 
-const Sidebar = () => {
+const Sidebar = ({ isToggle }) => {
+  const activeTab = {
+    color: "red",
+  };
+
   return (
     <>
-      <nav className="bg-black text-white">
+      <nav className={`bg-black text-white ${isToggle ? "open" : ""}`}>
         <ul className="flex flex-col gap-7">
           <li>
-            <Link className="flex items-center gap-6" to="/">
+            <NavLink
+              className="flex items-center gap-6"
+              style={({ isActive }) => (isActive ? activeTab : null)}
+              to="/"
+            >
               <Icon icon="material-symbols:home-outline" width="25px" />
               <p>Home</p>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="flex items-center gap-6" to="/cryptocurrencies">
+            <NavLink
+              className="flex items-center gap-6"
+              style={({ isActive }) => (isActive ? activeTab : null)}
+              to="/cryptocurrencies"
+            >
               <Icon icon="arcticons:crypto-prices" color="white" width="25px" />
               <p>Cryptocurrencies</p>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="flex items-center gap-6" to="/news">
+            <NavLink
+              className="flex items-center gap-6"
+              style={({ isActive }) => (isActive ? activeTab : null)}
+              to="/news"
+            >
               <Icon icon="tabler:news" width="25px" />
               <p>News</p>
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>

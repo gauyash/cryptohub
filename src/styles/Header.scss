@@ -8,4 +8,12 @@
     width:2.7rem;
     height: 2.7rem;
     font-size: 1.8rem;
+
+    & > *{
+        display: none;
+    }
+
+    & > .active{
+        display: block;
+    }
 }
