@@ -11,7 +11,7 @@ const TopCurrencies = () => {
         <h2 className="heading font-medium">Top 10 Cryptocurrencies in the World</h2>
         <Link to="/cryptocurrencies"><Icon icon="fluent-mdl2:go" width="15" /></Link>
       </div>
-      <CardCurrencies />
+      <CardCurrencies simplified={true} />
     </section>
   );
 };

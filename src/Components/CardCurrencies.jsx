@@ -1,17 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCrypto } from "./app/slice/Crypto";
 import { MutatingDots } from "react-loader-spinner";
 import millify from "millify";
 
-const CardCurrencies = () => {
+const CardCurrencies = ({ simplified }) => {
+  const value = simplified ? 10 : 50;
   const dispatch = useDispatch();
   const state = useSelector((state) => state.crypto);
-  const data = state.data?.data?.coins.slice(0, 10);
+  const data = state.data?.data?.coins.slice(0, value);
+  const [cryptoData, setCryptoData] = useState(data);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     dispatch(fetchCrypto());
   }, [dispatch]);
+
+  useEffect(() => {
+    const filterData = data?.filter((item) =>
+      item.name.toLowerCase().includes(search.toLowerCase())
+    );
+    setCryptoData(filterData);
+  }, [search, state]);
 
   if (state.isLoading) {
     return (
@@ -29,12 +39,13 @@ const CardCurrencies = () => {
   }
 
 
-  const currenciesElements = data?.map((item) => {
+  const currenciesElements = cryptoData?.map((item) => {
     return (
       <div key={item.uuid} className="card shadow">
+        
         <div className="flex items-center justify-between">
           <h3 className="card_heading">{`${item.rank} ${item.name}`}</h3>
-          <img src={item.iconUrl} alt="" width="20px" />
+          <img src={item.iconUrl} alt="" width="30px" />
         </div>
         <div className="flex flex-col gap-4 pt-6">
           <p className="card_price">{`Price: ${millify(item.price)}`}</p>
@@ -45,7 +56,25 @@ const CardCurrencies = () => {
     );
   });
 
-  return <div className="card_layout flex">{data && currenciesElements}</div>;
+  return (
+    <div className="card_layout flex mb-7">
+      {data && (
+        <>
+          {!simplified ? (
+            <input
+              placeholder="Search"
+              className="p-3 search border"
+              type="text"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          ) : (
+            ""
+          )}
+          {currenciesElements}
+        </>
+      )}
+    </div>
+  );
 };
 
 export default CardCurrencies;

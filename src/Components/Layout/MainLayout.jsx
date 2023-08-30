@@ -25,9 +25,7 @@ const MainLayout = () => {
       <Outlet />
       <Footer />
       <Sidebar
-        handleToggle={handleToggle}
         isToggle={isToggle}
-        setIsToggle={setIsToggle}
       />
     </div>
   );

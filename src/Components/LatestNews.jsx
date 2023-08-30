@@ -11,7 +11,7 @@ const LatestNews = () => {
         <h2 className="heading font-medium">Latest Crypto News</h2>
         <Link to="/news"><Icon icon="fluent-mdl2:go" width="15" /></Link>
       </div>
-      <CardNews />
+      <CardNews simplified={true} />
     </section>
   );
 };
