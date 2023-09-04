@@ -9,9 +9,10 @@ const Hero = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.crypto);
   const data = state.data?.data?.stats;
+  const url="coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0"
 
   useEffect(() => {
-    dispatch(fetchCrypto());
+    dispatch(fetchCrypto(url));
   }, [dispatch]);
 
   if (state.isLoading) {

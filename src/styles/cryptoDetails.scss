@@ -1,0 +1,22 @@
+.header {
+    border-bottom: 1px solid lightgray;
+
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.statistics,.links{
+    h3{
+        font-size: 2.3rem;
+    }
+
+    ul{
+        width: 90%;
+        margin-inline: auto;
+
+        li{
+            border-bottom: 1px solid lightgray;
+        }
+    }
+}

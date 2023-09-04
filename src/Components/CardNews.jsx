@@ -14,7 +14,7 @@ const CardNews = ({ simplified }) => {
   const data = state.newsApi.data?.value.slice(0, value);
   const crypto = state.crypto.data?.data?.coins.slice(0, 10);
   const [searchTerm, setSearchTerm] = useState("cryptocurrency");
-
+  // console.log(crypto);
   useEffect(() => {
     dispatch(fetchNewsApi(searchTerm));
     !simplified ? dispatch(fetchCrypto()) : "";
@@ -36,7 +36,6 @@ const CardNews = ({ simplified }) => {
   }
 
   const newsElements = data?.map((item, index) => {
-    console.log(item);
     return (
       <div key={index} className="card">
         <Link to={item.url}>

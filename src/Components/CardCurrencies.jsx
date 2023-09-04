@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCrypto } from "./app/slice/Crypto";
 import { MutatingDots } from "react-loader-spinner";
 import millify from "millify";
+import { Link } from "react-router-dom";
 
 const CardCurrencies = ({ simplified }) => {
   const value = simplified ? 10 : 50;
@@ -11,9 +12,10 @@ const CardCurrencies = ({ simplified }) => {
   const data = state.data?.data?.coins.slice(0, value);
   const [cryptoData, setCryptoData] = useState(data);
   const [search, setSearch] = useState("");
-
+  const url =
+    "coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0";
   useEffect(() => {
-    dispatch(fetchCrypto());
+    dispatch(fetchCrypto(url));
   }, [dispatch]);
 
   useEffect(() => {
@@ -38,20 +40,22 @@ const CardCurrencies = ({ simplified }) => {
     );
   }
 
-
   const currenciesElements = cryptoData?.map((item) => {
     return (
       <div key={item.uuid} className="card shadow">
-        
-        <div className="flex items-center justify-between">
-          <h3 className="card_heading">{`${item.rank} ${item.name}`}</h3>
-          <img src={item.iconUrl} alt="" width="30px" />
-        </div>
-        <div className="flex flex-col gap-4 pt-6">
-          <p className="card_price">{`Price: ${millify(item.price)}`}</p>
-          <p className="card_cap">{`Market Cap: ${millify(item.marketCap)}`}</p>
-          <p className="card_change">{`Daily Change: ${item.change}%`}</p>
-        </div>
+        <Link to={`/cryptocurrencies/${item.uuid}`}>
+          <div className="flex items-center justify-between">
+            <h3 className="card_heading">{`${item.rank} ${item.name}`}</h3>
+            <img src={item.iconUrl} alt="" width="30px" />
+          </div>
+          <div className="flex flex-col gap-4 pt-6">
+            <p className="card_price">{`Price: ${millify(item.price)}`}</p>
+            <p className="card_cap">{`Market Cap: ${millify(
+              item.marketCap
+            )}`}</p>
+            <p className="card_change">{`Daily Change: ${item.change}%`}</p>
+          </div>
+        </Link>
       </div>
     );
   });
