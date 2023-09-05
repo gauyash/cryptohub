@@ -47,7 +47,7 @@ const CardCurrencies = ({ simplified }) => {
       <div key={item.uuid} className="card shadow">
         <Link to={`/cryptocurrencies/${item.uuid}`}>
           <div className="flex items-center justify-between">
-            <h3 className="card_heading">{`${item.rank} ${item.name}`}</h3>
+            <h3 className="card_heading font-semibold">{`${item.rank} ${item.name}`}</h3>
             <img src={item.iconUrl} alt="" width="30px" />
           </div>
           <div className="flex flex-col gap-4 pt-6">

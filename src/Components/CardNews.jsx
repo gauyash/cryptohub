@@ -38,7 +38,7 @@ const CardNews = ({ simplified }) => {
     return (
       <div key={index} className="card">
         <Link to={item.url}>
-        <div className="card_head flex items-center justify-between">
+        <div className="card_head flex items-center gap-5">
           <h3 className="card_heading font-semibold">{item.name}</h3>
           <img src={item.image?.thumbnail.contentUrl} />
         </div>
