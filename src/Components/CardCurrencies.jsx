@@ -9,13 +9,12 @@ const CardCurrencies = ({ simplified }) => {
   const value = simplified ? 10 : 50;
   const dispatch = useDispatch();
   const state = useSelector((state) => state.crypto);
-  const data = state.data?.data?.coins.slice(0, value);
+  const data = state?.data?.data?.coins?.slice(0, value);
   const [cryptoData, setCryptoData] = useState(data);
   const [search, setSearch] = useState("");
-  const url =
-    "coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0";
+
   useEffect(() => {
-    dispatch(fetchCrypto(url));
+    dispatch(fetchCrypto());
   }, [dispatch]);
 
   useEffect(() => {
@@ -23,7 +22,10 @@ const CardCurrencies = ({ simplified }) => {
       item.name.toLowerCase().includes(search.toLowerCase())
     );
     setCryptoData(filterData);
+
   }, [search, state]);
+
+
 
   if (state.isLoading) {
     return (

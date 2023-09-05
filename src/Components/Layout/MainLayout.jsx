@@ -1,22 +1,10 @@
-import React, { useState, useEffect} from "react";
+
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "../Header";
 import Footer from "../Footer";
 import Sidebar from "../Sidebar";
 
-const MainLayout = () => {
-  const [isToggle, setIsToggle] = useState(false);
-
-  function handleToggle() {
-    setIsToggle((prevToggleState) => !prevToggleState);
-  }
-
-  const location = useLocation();
-
-  useEffect(() => {
-    handleToggle();
-  }, [location]);
-
+const MainLayout = ({isToggle,handleToggle}) => {
 
 
   return (
@@ -24,9 +12,7 @@ const MainLayout = () => {
       <Header handleToggle={handleToggle} isToggle={isToggle} />
       <Outlet />
       <Footer />
-      <Sidebar
-        isToggle={isToggle}
-      />
+      <Sidebar isToggle={isToggle} />
     </div>
   );
 };

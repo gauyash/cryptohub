@@ -7,16 +7,16 @@ const cryptoApiHeaders = {
 
 const baseUrl="https://coinranking1.p.rapidapi.com/"
 
-const fetchCrypto = createAsyncThunk("fetchCrypto", async () => {
-  const response = await fetch(`${baseUrl}coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0`, {
+const fetchCryptoDetails = createAsyncThunk("fetchCryptoDetails", async (id) => {
+  const response = await fetch(`${baseUrl}coin/${id}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`, {
     method: "GET",
     headers: cryptoApiHeaders,
   });
   const data = await response.json();
   return data;
 });
-const cryptoSlice = createSlice({
-  name: "crypto",
+const cryptoDetailsSlice = createSlice({
+  name: "cryptoDetails",
   initialState: {
     isLoading: false,
     data: null,
@@ -24,17 +24,17 @@ const cryptoSlice = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder.addCase(fetchCrypto.pending, (state, action) => {
+    builder.addCase(fetchCryptoDetails.pending, (state, action) => {
       state.isLoading = true;
     });
-    builder.addCase(fetchCrypto.fulfilled, (state, action) => {
+    builder.addCase(fetchCryptoDetails.fulfilled, (state, action) => {
       (state.isLoading = false), (state.data = action.payload);
     });
-    builder.addCase(fetchCrypto.rejected, (state, action) => {
+    builder.addCase(fetchCryptoDetails.rejected, (state, action) => {
       console.log(action.payload);
       state.isError = true;
     });
   },
 });
-export { fetchCrypto };
-export default cryptoSlice.reducer;
+export { fetchCryptoDetails };
+export default cryptoDetailsSlice.reducer;

@@ -3,7 +3,11 @@ import Hero from "../Components/Hero";
 import TopCurrencies from "../Components/TopCurrencies";
 import LatestNews from "../Components/LatestNews";
 
-const Home = () => {
+const Home = ({setIsToggle}) => {
+  
+  useEffect(() => {
+    setIsToggle(false); 
+  },[setIsToggle]);
   return (
     <>
       <>
