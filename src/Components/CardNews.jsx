@@ -14,7 +14,6 @@ const CardNews = ({ simplified }) => {
   const data = state.newsApi.data?.value.slice(0, value);
   const crypto = state.crypto.data?.data?.coins.slice(0, 10);
   const [searchTerm, setSearchTerm] = useState("cryptocurrency");
-  // console.log(crypto);
   useEffect(() => {
     dispatch(fetchNewsApi(searchTerm));
     !simplified ? dispatch(fetchCrypto()) : "";
@@ -40,7 +39,7 @@ const CardNews = ({ simplified }) => {
       <div key={index} className="card">
         <Link to={item.url}>
         <div className="card_head flex items-center justify-between">
-          <h3 className="card_heading">{item.name}</h3>
+          <h3 className="card_heading font-semibold">{item.name}</h3>
           <img src={item.image?.thumbnail.contentUrl} />
         </div>
         <div className="card_body pt-7">
