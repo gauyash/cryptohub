@@ -1,3 +1,3 @@
 # CryptoHub
 
-- work in progress :)
+-  A Simple Website for getting information about Cryptocurrency
