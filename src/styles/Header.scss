@@ -8,6 +8,13 @@
     width:2.7rem;
     height: 2.7rem;
     font-size: 1.8rem;
+    display: flex;
+
+    @media(min-width:868px){
+        & {
+            display: none;
+        }
+    }
 
     & > *{
         display: none;

@@ -9,7 +9,7 @@ const MainLayout = ({ isToggle, handleToggle }) => {
       <Header handleToggle={handleToggle} isToggle={isToggle} />
       <div className="mainLayoutContainer">
         <Sidebar isToggle={isToggle} />
-        <article>
+        <article style={{maxWidth:"150rem"}}>
           <Outlet />
           <Footer />
         </article>

@@ -15,7 +15,7 @@ const Header = ({ isToggle, handleToggle }) => {
 
       <div
         onClick={handleToggle}
-        className="hamburger bg-white text-black flex items-center justify-center"
+        className="hamburger bg-white text-black items-center justify-center"
       >
         <Icon
           className={`${isToggle ? "" : "active"}`}
